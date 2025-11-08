@@ -1,3 +1,4 @@
+# --- C++ Standard ---
 # Prerequisites
 *.d
 
@@ -13,18 +14,16 @@
 
 # Linker files
 *.ilk
+*.map
 
 # Debugger Files
 *.pdb
+*.dwo
 
 # Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
-*.mod
-*.smod
 
 # Compiled Static libraries
 *.lai
@@ -37,5 +36,45 @@
 *.out
 *.app
 
-# debug information files
-*.dwo
+# Fortran module files
+*.mod
+*.smod
+
+# Build logs
+*.log
+
+# --- JetBrains CLion / IntelliJ IDEA ---
+.idea/                # Configuración del entorno
+*.iml                 # Archivos de módulo
+cmake-build-*/        # Carpeta de builds generada por CMake
+cmake-build-debug/
+cmake-build-release/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+compile_commands.json
+
+# --- Archivos temporales y de sistema ---
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos comprimidos o de respaldo
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+*.bak
+*.old
+*.orig
+*.rej
+
+# --- Archivos de pruebas locales ---
+*.stackdump
+test-output/
+.vscode/
