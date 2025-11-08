@@ -3,6 +3,10 @@
 #include <iomanip>
 using namespace std;
 
+// ---------------------------------------------------------------------------
+// Estructura: pasajero
+// Define los atributos personales y de reserva de un pasajero.
+// ---------------------------------------------------------------------------
 struct pasajero{
     string nombre;
     string apellido;
@@ -13,6 +17,11 @@ struct pasajero{
     long precioSilla=0;
 };
 
+// ---------------------------------------------------------------------------
+// Estructura: avion
+// Contiene los datos relacionados con un vuelo, como tipo de avión, asientos,
+// pasajeros y ganancia generada.
+// ---------------------------------------------------------------------------
 struct avion{
     int numVuelo=-1;
     char tamAvion;
@@ -21,13 +30,19 @@ struct avion{
     int asientoPref=0;
     pasajero pasajeros[40];
 };
-
+// Declaración de funciones principales del sistema
 void comprar(avion aviones[]);
 long cotizar(int numSilla, char tamAvion, int edad);
 void calcularPasajeros(avion aviones[]);
 void calcularGanancia(avion aviones[]);
 void generarArchivo(avion aviones[]);
 
+
+// ---------------------------------------------------------------------------
+// Función principal: main
+// Despliega el menú principal del sistema, donde se ejecutan las funciones
+// según la opción seleccionada por el usuario.
+// ---------------------------------------------------------------------------
 int main (){
     avion aviones[15];
     bool repetirM=true;
@@ -57,6 +72,14 @@ int main (){
         }
     }while(repetirM);
 }
+
+
+// ---------------------------------------------------------------------------
+// Función: comprar
+// Descripción: Maneja el proceso de compra de tiquetes, registro de pasajeros,
+// asignación de asientos y cálculo de precios según edad, tipo de asiento y avión.
+// También permite comparar precios entre diferentes tipos de aviones.
+// ---------------------------------------------------------------------------
 void comprar(avion aviones[]){
 	char tamAvionC;
 	int numVueloC;
@@ -229,6 +252,13 @@ void comprar(avion aviones[]){
 		}
 	}while(agregar==1);
 }
+
+
+// ---------------------------------------------------------------------------
+// Función: cotizar
+// Descripción: Calcula el precio del tiquete basado en el tipo de avión,
+// el número de silla y la edad del pasajero. Aplica descuentos para niños y adultos mayores.
+// ---------------------------------------------------------------------------
 long cotizar(int numSilla, char tamAvion, int edad){
 	long precio=0;
 	switch(tamAvion){
@@ -294,6 +324,13 @@ long cotizar(int numSilla, char tamAvion, int edad){
 			break;
 	}
 }
+
+
+// ---------------------------------------------------------------------------
+// Función: calcularPasajeros
+// Descripción: Permite consultar cuántos pasajeros hay por sexo o en un rango de edad
+// para un vuelo específico. Muestra los datos registrados de dichos pasajeros.
+// ---------------------------------------------------------------------------
 void calcularPasajeros(avion aviones[]){
 	int numeroVuelo;
 	bool repetir=true;
@@ -438,6 +475,14 @@ void calcularPasajeros(avion aviones[]){
 		}
 	}while(repetir);
 }
+
+
+
+// ---------------------------------------------------------------------------
+// Función: calcularGanancia
+// Descripción: Recorre todos los vuelos y suma el valor total recaudado por tiquetes
+// vendidos, diferenciando por tipo de avión.
+// ---------------------------------------------------------------------------
 void calcularGanancia(avion aviones[]){
 	for(int i=0; i<15; i++){
 		if(aviones[i].tamAvion=='P'){
@@ -457,6 +502,15 @@ void calcularGanancia(avion aviones[]){
 		}
 	}
 }
+
+
+
+// ---------------------------------------------------------------------------
+// Función: generarArchivo
+// Descripción: Genera un archivo de texto llamado 'reporte.txt' con el resumen
+// de los vuelos registrados, incluyendo los pasajeros, tipo de avión, ganancias
+// y asientos vendidos. Ordena los vuelos por menor a mayor ganancia.
+// ---------------------------------------------------------------------------
 void generarArchivo(avion aviones[]){
 	avion aux;
 	for (int k=0; k<14; k++){
