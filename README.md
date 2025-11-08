@@ -58,18 +58,15 @@ También se implementan estructuras como:
 ---
 ## 🧪 Estado del Proyecto
 
-Este código fue funcional y aprobado en su momento. Actualmente está siendo revisado para su publicación en GitHub con fines académicos y de portafolio personal. Se planean mejoras como:
+Este código fue funcional y aprobado en su momento. Fue revisado para su publicación en GitHub con fines académicos y de portafolio personal.
 
-- Validación de entradas más robusta  
-- Uso de estructuras (`struct`) para representar pasajeros o vuelos   
-- Inclusión de comentarios detallados  
 ---
 
 
 
 ## 📁 Archivos incluidos
 
-- `ProyectoFinal5%.cpp`: Código fuente del programa completo.
+- `PontiAir.cpp`: Código fuente del programa completo.
 - `README.md`: Este documento.
 - `.gitignore`: Archivos y carpetas ignoradas por Git para mantener limpio el repositorio.
 
