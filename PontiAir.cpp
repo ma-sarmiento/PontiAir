@@ -294,3 +294,147 @@ long cotizar(int numSilla, char tamAvion, int edad){
 			break;
 	}
 }
+void calcularPasajeros(avion aviones[]){
+	int numeroVuelo;
+	bool repetir=true;
+	int contM = 0;
+	int contF = 0;
+	int contEdad = 0;
+	int opcion;
+	int min, max;
+	cout<<"Calcular numero de pasajeros: "<<endl;
+	cout<<"Digite el numero de vuelo: "<<endl;
+	cin>>numeroVuelo;
+	do{
+		cout<<"\n1. Sexo"<<endl;
+		cout<<"\n2. Rango de edad"<<endl;
+		cout<<"\n3. Salir"<<endl;
+		cout<<"\nDigite una opcion para hacer el calculo: ";
+		cin>>opcion;
+		switch(opcion){
+		case 1:
+		if(aviones[numeroVuelo-1].tamAvion=='P'){
+			for (int k=0; k<16; k++){
+				if (aviones[numeroVuelo-1].pasajeros[k].sexo == 'M'){
+					contM=contM + 1;
+				}
+				if(aviones[numeroVuelo-1].pasajeros[k].sexo == 'F'){
+					contF= contF + 1;
+				}
+			}
+			cout<<setw(15) << "Nombre";
+   			cout<<setw(15) << "Apellido";
+    		cout<<setw(15) << "Sexo"<<endl;
+			for (int k=0; k<16; k++){
+				if(aviones[numeroVuelo-1].pasajeros[k].ocupada){
+				cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].nombre;
+            	cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].apellido;
+            	cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].sexo<<endl;
+				}
+			}
+		}
+		if(aviones[numeroVuelo-1].tamAvion=='M'){
+			for (int k=0; k<28; k++){
+				if (aviones[numeroVuelo-1].pasajeros[k].sexo == 'M'){
+					contM=contM + 1;
+				}
+				if(aviones[numeroVuelo-1].pasajeros[k].sexo == 'F'){
+					contF= contF + 1;
+				}
+			}
+			cout<<setw(15) << "Nombre";
+   			cout<<setw(15) << "Apellido";
+    		cout<<setw(15) << "Sexo"<<endl;
+			for (int k=0; k<28; k++){
+				if(aviones[numeroVuelo-1].pasajeros[k].ocupada){
+				cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].nombre;
+            	cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].apellido;
+            	cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].sexo<<endl;
+				}
+			}
+		}
+		if(aviones[numeroVuelo-1].tamAvion=='G'){
+			for (int k=0; k<40; k++){
+				if (aviones[numeroVuelo-1].pasajeros[k].sexo == 'M'){
+					contM=contM + 1;
+				}
+				if(aviones[numeroVuelo-1].pasajeros[k].sexo == 'F'){
+					contF= contF + 1;
+				}
+			}
+			cout<<setw(15) << "Nombre";
+   			cout<<setw(15) << "Apellido";
+    		cout<<setw(15) << "Sexo"<<endl;
+			for (int k=0; k<40; k++){
+				if(aviones[numeroVuelo-1].pasajeros[k].ocupada){
+				cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].nombre;
+            	cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].apellido;
+            	cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].sexo<<endl;
+				}
+			}
+		}
+		cout<<"Los pasajeros hombres en total son: "<<contM<<endl;
+		cout<<"Los pasajeros mujeres en total son: "<<contF<<endl;
+		break;
+		case 2:
+		cout<<"Digite el rango de edad (min - max): "<<endl;
+			cin>>min>>max;
+			if(aviones[numeroVuelo-1].tamAvion=='P'){
+				for(int k=0; k<16; k++){
+					if (aviones[numeroVuelo-1].pasajeros[k].edad >=min && aviones[numeroVuelo-1].pasajeros[k].edad<=max){
+					contEdad = contEdad + 1;
+					}
+				}
+				cout<<setw(15) << "Nombre";
+   				cout<<setw(15) << "Apellido";
+    			cout<<setw(15) << "Edad"<<endl;
+				for (int k=0; k<16; k++){
+					if(aviones[numeroVuelo-1].pasajeros[k].ocupada){
+					cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].nombre;
+            		cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].apellido;
+            		cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].edad<<endl;
+					}
+				}
+			}
+			if(aviones[numeroVuelo-1].tamAvion=='M'){
+				for(int k=0; k<28; k++){
+					if (aviones[numeroVuelo-1].pasajeros[k].edad >=min && aviones[numeroVuelo-1].pasajeros[k].edad<=max){
+					contEdad = contEdad + 1;
+					}
+				}
+				cout<<setw(15) << "Nombre";
+   				cout<<setw(15) << "Apellido";
+    			cout<<setw(15) << "Edad"<<endl;
+				for (int k=0; k<28; k++){
+					if(aviones[numeroVuelo-1].pasajeros[k].ocupada){
+						cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].nombre;
+            			cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].apellido;
+            			cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].edad<<endl;
+					}
+				}
+			}
+			if(aviones[numeroVuelo-1].tamAvion=='G'){
+				for(int k=0; k<40; k++){
+					if (aviones[numeroVuelo-1].pasajeros[k].edad >=min && aviones[numeroVuelo-1].pasajeros[k].edad<=max){
+					contEdad = contEdad + 1;
+					}
+				}
+				cout<<setw(15) << "Nombre";
+   				cout<<setw(15) << "Apellido";
+    			cout<<setw(15) << "Edad"<<endl;
+				for (int k=0; k<40; k++){
+					if(aviones[numeroVuelo-1].pasajeros[k].ocupada){
+						cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].nombre;
+            			cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].apellido;
+            			cout<<setw(15) << aviones[numeroVuelo - 1].pasajeros[k].edad<<endl;
+					}
+				}
+			}
+			cout<<"Los pasajeros entre este rango de edad son: "<<contEdad;
+		break;
+		case 3:
+		repetir = false;
+		break;
+		}
+	}while(repetir);
+}
