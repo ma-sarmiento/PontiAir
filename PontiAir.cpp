@@ -1,3 +1,4 @@
+// PontiAir.cpp
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -10,7 +11,7 @@ using namespace std;
 struct pasajero{
     string nombre;
     string apellido;
-    bool ocupada=false;
+    bool ocupada=false; // Indica si el asiento está ocupado
     int edad;
     char sexo;
     int numSillaP=0;
@@ -24,11 +25,11 @@ struct pasajero{
 // ---------------------------------------------------------------------------
 struct avion{
     int numVuelo=-1;
-    char tamAvion;
+    char tamAvion;          // Tamaño del avión ('P': pequeño, 'M': mediano, 'G': grande)
     long gananciaTotal=0;
     int asientoGeneral=0;
     int asientoPref=0;
-    pasajero pasajeros[40];
+    pasajero pasajeros[40]; // Arreglo de pasajeros (máximo 40 por avión)
 };
 // Declaración de funciones principales del sistema
 void comprar(avion aviones[]);
@@ -44,9 +45,10 @@ void generarArchivo(avion aviones[]);
 // según la opción seleccionada por el usuario.
 // ---------------------------------------------------------------------------
 int main (){
-    avion aviones[15];
+    avion aviones[15]; // Arreglo que representa todos los vuelos (máximo 15)
     bool repetirM=true;
     int opcion;
+	// Menú principal del sistema
     do{
         cout<<"Bienvenidos a PontiAir"<<endl;
         cout<<"\nMenu"<<endl;
