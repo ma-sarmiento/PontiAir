@@ -438,3 +438,98 @@ void calcularPasajeros(avion aviones[]){
 		}
 	}while(repetir);
 }
+void calcularGanancia(avion aviones[]){
+	for(int i=0; i<15; i++){
+		if(aviones[i].tamAvion=='P'){
+			for(int j=0; j<16; j++){
+			aviones[i].gananciaTotal+=aviones[i].pasajeros[j].precioSilla;
+			}
+		}
+		if(aviones[i].tamAvion=='M'){
+			for(int j=0; j<28; j++){
+			aviones[i].gananciaTotal+=aviones[i].pasajeros[j].precioSilla;
+			}
+		}
+		if(aviones[i].tamAvion=='G'){
+			for(int j=0; j<40; j++){
+			aviones[i].gananciaTotal+=aviones[i].pasajeros[j].precioSilla;
+			}
+		}
+	}
+}
+void generarArchivo(avion aviones[]){
+	avion aux;
+	for (int k=0; k<14; k++){
+		for (int j=k; j<15; j++){
+			if (aviones[k].gananciaTotal > aviones[j].gananciaTotal){
+				aux=aviones[k];
+				aviones[k]=aviones[j];
+				aviones[j]=aux;
+			}
+		}
+	}
+	ofstream archivo;
+	archivo.open("reporte.txt");
+	for(int i=0; i<15; i++){
+		if(aviones[i].gananciaTotal!=0){
+			if(aviones[i].tamAvion=='P'){
+				archivo<<aviones[i].tamAvion<<endl;
+				archivo<<aviones[i].numVuelo<<endl;
+				for(int j=0; j<16; j++){
+					if(aviones[i].pasajeros[j].numSillaP!=0){
+						archivo<<aviones[i].pasajeros[j].numSillaP<<endl;
+						archivo<<aviones[i].pasajeros[j].nombre<<" "<<aviones[i].pasajeros[j].apellido<<" "<<aviones[i].pasajeros[j].edad<<" "<<aviones[i].pasajeros[j].sexo<<endl;
+						archivo<<"#"<<endl;
+					}
+				}
+				archivo<<aviones[i].gananciaTotal<<endl;
+				//Asientos preferenciales vendidos en el avion
+				if(aviones[i].asientoPref!=0){
+					archivo<<"Asientos preferenciales vendidos: "<<aviones[i].asientoPref<<endl;
+				}
+				//Asientos generales vendidos en el avion
+				if(aviones[i].asientoGeneral!=0){
+					archivo<<"Asientos generales vendidos: "<<aviones[i].asientoGeneral<<endl;
+				}
+			archivo<<"#"<<endl;
+			}
+			if(aviones[i].tamAvion=='M'){
+				archivo<<aviones[i].tamAvion<<endl;
+				archivo<<aviones[i].numVuelo<<endl;
+				for(int j=0; j<28; j++){
+					if(aviones[i].pasajeros[j].numSillaP!=0){
+						archivo<<aviones[i].pasajeros[j].numSillaP<<endl;
+						archivo<<aviones[i].pasajeros[j].nombre<<" "<<aviones[i].pasajeros[j].apellido<<" "<<aviones[i].pasajeros[j].edad<<" "<<aviones[i].pasajeros[j].sexo<<endl;
+					}
+				}
+				archivo<<aviones[i].gananciaTotal<<endl;
+				if(aviones[i].asientoPref!=0){
+					archivo<<"Asientos preferenciales vendidos: "<<aviones[i].asientoPref<<endl;
+				}
+				if(aviones[i].asientoGeneral!=0){
+					archivo<<"Asientos generales vendidos: "<<aviones[i].asientoGeneral<<endl;
+				}
+			archivo<<"#"<<endl;
+			}
+			if(aviones[i].tamAvion=='G'){
+				archivo<<aviones[i].tamAvion<<endl;
+				archivo<<aviones[i].numVuelo<<endl;
+				for(int j=0; j<40; j++){
+					if(aviones[i].pasajeros[j].numSillaP!=0){
+						archivo<<aviones[i].pasajeros[j].numSillaP<<endl;
+						archivo<<aviones[i].pasajeros[j].nombre<<" "<<aviones[i].pasajeros[j].apellido<<" "<<aviones[i].pasajeros[j].edad<<" "<<aviones[i].pasajeros[j].sexo<<endl;
+					}
+				}
+				archivo<<aviones[i].gananciaTotal<<endl;
+				if(aviones[i].asientoPref!=0){
+					archivo<<"Asientos preferenciales vendidos: "<<aviones[i].asientoPref<<endl;
+				}
+				if(aviones[i].asientoGeneral!=0){
+					archivo<<"Asientos generales vendidos: "<<aviones[i].asientoGeneral<<endl;
+				}
+			archivo<<"#"<<endl;
+			}
+		}
+	}
+	archivo.close();
+}
