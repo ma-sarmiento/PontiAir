@@ -61,8 +61,7 @@ También se implementan estructuras como:
 Este código fue funcional y aprobado en su momento. Actualmente está siendo revisado para su publicación en GitHub con fines académicos y de portafolio personal. Se planean mejoras como:
 
 - Validación de entradas más robusta  
-- Uso de estructuras (`struct`) para representar pasajeros o vuelos  
-- Separación en múltiples archivos (`.h`, `.cpp`)  
+- Uso de estructuras (`struct`) para representar pasajeros o vuelos   
 - Inclusión de comentarios detallados  
 ---
 
